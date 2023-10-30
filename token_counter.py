@@ -1,3 +1,4 @@
+#The concatanate inputs function is used to merge the relevant text elements into a single text element in order to convert it to tokens. 
 def concatenate_inputs(question, conversation_history, context, response):
     ##To determine the relevant tokens excluding the prompt template we take the following elements:
     # question - Question submitted by the user in the chat interface
@@ -23,6 +24,9 @@ def concatenate_inputs(question, conversation_history, context, response):
 
     return combined_text
 
+# The count total tokens function takes the individual text elements as an input, merges them into a single text element using the 
+# concatenate_inputs function. This merged text is then tokenized using the tiktoken package provided by OpenAI (https://github.com/openai/tiktoken)
+# after which we count the number of tokens that the text was converted to using the built in len() function provided by python.
 def count_total_tokens(question, conversation_history, context, response):
     import tiktoken
 
