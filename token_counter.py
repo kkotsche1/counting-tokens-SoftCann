@@ -6,17 +6,18 @@ def concatenate_inputs(question, conversation_history, context, response):
     
     # The combined_text variable is initialized simply as the question
     combined_text = question
-    
-    #The conversation history variable is a list of lists. Each outer list item corresponds to one conversational turn
+
+    # We now start adding the conversational history to the initialized "combined_text"
+    # The conversation history variable is a list of lists. Each outer list item corresponds to one conversational turn
     for exchange in conversation_history:
-        # We iterate through the conversation_history, working through each element as the variable exchange
+        # We iterate through the conversation_history, working through each element as the variable "exchange"
         # Each conversational turn (list item named exchange in this case) consists of two strings (text elements), 
         # the first one, exchange[0] corresponds to the users submitted question, the second element exchange[1] 
         # corresponds to the bots response.
         # For each conversational turn we extend the combined text by a space, the user question, a space, the bot response
         combined_text = combined_text + " " + exchange[0] + " " + exchange[1]
 
-    # We now take the combined text, which at this point consists of the original user question, the elements of the conversational 
+    # We now take the combined text, which at this point consists of the original user question and the elements of the conversational 
     # history, and add another space as well as the context used to answer the question which is taken from the QA database provided
     combined_text += " " + context
 
